@@ -133,6 +133,7 @@ dependencies {
     //--------------Retrofit--------------------------
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    api (libs.okhttp.logging)
 
 
     //----------------Hilt--------------------------
