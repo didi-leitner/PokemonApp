@@ -47,7 +47,10 @@ fun MyListItemWImage(modifier: Modifier, id: Int,
             //.semantics { selected = isSelected }
             .clip(CardDefaults.shape)
             .combinedClickable(
-                onClick = { navigateToDetail(id) },
+                onClick = {
+                    println("TESTT on Click")
+                    navigateToDetail(id)
+                          },
                 onLongClick = { /*toggleSelection(product.id)*/ }
             )
             .clip(CardDefaults.shape),

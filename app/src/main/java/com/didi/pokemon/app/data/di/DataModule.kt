@@ -1,4 +1,4 @@
-package com.didi.pokemon.app.di
+package com.didi.pokemon.app.data.di
 
 import com.didi.pokemon.app.data.repository.IPokemonRepository
 import com.didi.pokemon.app.data.repository.PokemonRepository

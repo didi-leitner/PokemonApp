@@ -1,6 +1,5 @@
-package com.didi.pokemon.app.di
+package com.didi.pokemon.app.network
 
-import com.didi.pokemon.app.network.IPokemonApi
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -26,7 +25,8 @@ class NetworkModule {
 
     @Provides
     fun providesHttpClient(): OkHttpClient {
-        val okhttpClientBuilder = OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS)
+        val okhttpClientBuilder = OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
 

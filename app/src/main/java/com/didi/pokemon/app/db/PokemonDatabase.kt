@@ -7,11 +7,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.didi.pokemon.app.db.dao.PokemonDao
 import com.didi.pokemon.app.model.Pokemon
+import com.didi.pokemon.app.model.PokemonDetail
 
 
-@Database(entities = [Pokemon::class], version = 1, exportSchema = false)
+@Database(entities = [Pokemon::class, PokemonDetail::class], version = 2, exportSchema = false)
 abstract class PokemonDatabase : RoomDatabase() {
     abstract fun pokemonsDao(): PokemonDao
+
 
     companion object {
 

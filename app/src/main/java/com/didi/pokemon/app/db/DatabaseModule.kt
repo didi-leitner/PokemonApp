@@ -1,4 +1,4 @@
-package com.didi.pokemon.app.di
+package com.didi.pokemon.app.db
 
 
 import android.content.Context

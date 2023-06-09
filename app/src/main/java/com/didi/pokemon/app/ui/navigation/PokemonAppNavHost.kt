@@ -3,8 +3,11 @@ package com.didi.pokemon.app.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
+import com.didi.pokemon.app.ui.views.PokemonDetailsRoute
 import com.didi.pokemon.app.ui.views.PokemonListRoute
 
 
@@ -12,12 +15,17 @@ const val pokeListRoute = "pokemon-list-route"
 const val pokeDetailRoute = "pokemon-detail-route/{pokemon_id}"
 
 @Composable
-fun PokemonAppNavHost(navController: NavHostController, startDestination: String, modifier: Modifier) {
+fun PokemonAppNavHost(
+    navController: NavHostController,
+    startDestination: String,
+    modifier: Modifier
+) {
 
 
     //ACTIONS
-    val onNavigateToDetail: (id:Int) -> Unit = {
+    val onNavigateToDetail: (id: Int) -> Unit = {
         println("TESTT navigate to " + it)
+
         navController.navigate(
             pokeDetailRoute
                 .replace(
@@ -28,14 +36,22 @@ fun PokemonAppNavHost(navController: NavHostController, startDestination: String
     }
 
 
-    NavHost(navController = navController, startDestination, modifier){
+    NavHost(navController = navController, startDestination, modifier) {
 
-        composable(pokeListRoute){
+        composable(pokeListRoute) {
 
             PokemonListRoute(navigateToDetail = onNavigateToDetail)
 
         }
-        composable(pokeDetailRoute){
+        composable(route = pokeDetailRoute,
+            arguments = listOf(
+                navArgument("pokemon_id") {
+                    type = NavType.IntType
+                }
+            )) {
+
+            PokemonDetailsRoute()
+
 
         }
     }

@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -18,9 +19,9 @@ import com.didi.pokemon.app.ui.viewModel.PokemonListViewModel
 @Composable
 fun PokemonListRoute(viewModel: PokemonListViewModel = hiltViewModel(), navigateToDetail: (Int) -> Unit) {
 
-    val pokemons = viewModel.pokemons.collectAsStateWithLifecycle()
+    val pokemons by viewModel.pokemons.collectAsStateWithLifecycle()
 
-    PokemonListScreen(pokemons.value, navigateToDetail)
+    PokemonListScreen(pokemons, navigateToDetail)
 }
 
 @Composable
